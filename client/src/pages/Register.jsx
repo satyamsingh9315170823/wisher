@@ -42,15 +42,13 @@ e.preventDefault()
 
 try{
 
-const res=await API.post(
-"/auth/register",
-form
-)
+const res = await API.post("/auth/register",form);
 
-saveToken(res.data.token)
 
-nav("/dashboard")
 
+saveToken(res.data.token);
+
+nav("/dashboard");
 }catch(err){
 
 alert(

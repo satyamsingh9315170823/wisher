@@ -37,10 +37,8 @@ e.preventDefault();
 
 try{
 
-const res = await API.post(
-"/auth/login",
-form
-);
+const res = await API.post("/auth/login",form);
+
 
 if(!res.data.token){
 alert(res.data.message);

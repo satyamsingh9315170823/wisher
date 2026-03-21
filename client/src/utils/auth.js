@@ -1,26 +1,29 @@
-export const saveToken=(token)=>{
+export const saveToken = (token)=>{
 
-if(token){
+localStorage.setItem("token",token)
 
-localStorage.setItem(
-"token",
-token
-)
+const payload = JSON.parse(atob(token.split(".")[1]))
 
-}
+localStorage.setItem("name",payload.name)
 
 }
 
-export const logout=()=>{
+export const logoutUser = ()=>{
 
 localStorage.removeItem("token")
 
+localStorage.removeItem("name")
+
 }
 
-export const isAuth=()=>{
+export const getToken = ()=>{
 
-const token=localStorage.getItem("token")
+return localStorage.getItem("token")
 
-return token && token!=="undefined"
+}
+
+export const getName = ()=>{
+
+return localStorage.getItem("name")
 
 }
